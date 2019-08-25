@@ -1,0 +1,181 @@
+{% extends "user/base.html" %}
+{%block content%}
+<div class="junbotron text-center fixed">
+  <h1 class='display-4'>Vendor Database</h1>
+</div>
+<br>
+<div class="container-fluid" style="width:120%">
+  <form class='form-inline' method='POST' action="{%url 'filter2'%}">
+    {%csrf_token%}
+<div class="form-group">
+<label for="Vendor_name" style="margin-right:5px;">Vendor Name:</label>
+<input type="text" value=None name="Vendor_name" class='form-control' id="Vendor_name">
+</div>
+<div class="form-group">
+<label for="Item_desc" style='margin-left:20px;margin-right:5px'>Item Description:</label>
+<input type="text" value=None name='Item_desc' class='form-control'  id="Item_desc">
+</div>
+<div class="form-group">
+<label for="Vendor_loc" style='margin-left:20px;margin-right:5px'>Location:</label>
+<input type="text" value=None name="Vendor_loc" class='form-control'  id="Vendor_loc">
+</div>
+<div class="form-group">
+<label for="Overall" style='margin-left:20px;margin-right:5px'>Rating Greater Than:</label>
+<input type="number" value=0 name="Overall" class='form-control' id="Overall">
+</div>
+<div class="form-group">
+<label for="Category" style='margin-left:20px;margin-right:5px'>Category:</label>
+<input type="text" value=None name="Category" class='form-control' id="Category">
+</div>
+<button type="submit" class="btn btn-primary" style="margin-left:20px">Submit</button>
+</form>
+</div>
+<br>
+<br>
+<!--<ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="#">Library</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Data</li>
+  </ol>
+-->
+<div class="">
+<table class="table table-striped table-hover table-bordered" style="table-layout:fixed; overflow-y:none;"  >
+  <thead class='bg-coral'>
+    <tr>
+      <th scope="col" style="width:250px">Category</th>
+      <th scope="col" style="width:250px">Item Description</th>
+      <th scope="col" style="width:250px">Vendor Name</th>
+      <th scope="col" style="width:250px">Vendor Location</th>
+      <th scope="col" style="width:250px">Approval</th>
+      <th scope="col" style="width:250px">Project</th>
+      <th scope="col" style="width:250px">Project Rating</th>
+      <th scope="col" style="width:250px">Quality(Comments)</th>
+      <th scope="col" style="width:250px">Quality(Rating)</th>
+      <th scope="col" style="width:250px">SCM(Comments)</th>
+      <th scope="col" style="width:250px">SCM(Rating)</th>
+      <th scope="col" style="width:250px">PMG(Comments)</th>
+      <th scope="col" style="width:250px">PMG(Rating)</th>
+      <th scope="col" style="width:250px">Engineering(Comments)</th>
+      <th scope="col" style="width:250px">Engineering(Rating)</th>
+      <th scope="col" style="width:250px">Erection(Comments)</th>
+      <th scope="col" style="width:250px">Erection(Rating)</th>
+      <th scope="col" style="width:250px">Commissioning(Comments)</th>
+      <th scope="col" style="width:250px">Commissioning(Rating)</th>
+      <th scope="col" style="width:250px">Finance(Comments)</th>
+      <th scope="col" style="width:250px">Finance(Rating)</th>
+      <th scope="col" style="width:100px"></th>
+<th scope="col" style="width:130px"></th>
+<th scope="col" style="width:150px"></th>
+<th scope="col" style="width:150px"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in a %}
+    <tr>
+      <td style='word-wrap:break-word'>{{i.Category}}</td>
+      <td style='word-wrap:break-word'>{{i.Item_desc}}</td>
+      <td style='word-wrap:break-word'>{{i.Vendor_name}}</td>
+      <td style='word-wrap:break-word'>{{i.Vendor_loc}}</td>
+      <td style='word-wrap:break-word'>{{i.Approval}}</td>
+      {%if i.Project is none%}
+      <td style='word-wrap:break-word;'><b>-</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Project}}</td>
+      {%endif%}
+      {%if i.Project_Rating is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Project_Rating}}</td>
+      {%endif%}
+      {%if i.Quality_Comments is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Quality_Comments}}</td>
+      {%endif%}
+      {%if i.Quality_Rating is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Quality_Rating}}</td>
+      {%endif%}
+
+      {%if i.SCM_Comments is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.SCM_Comments}}</td>
+      {%endif%}
+      {%if i.SCM_Rating is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.SCM_Rating}}</td>
+      {%endif%}
+
+      {%if i.PMG_Comments is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.PMG_Comments}}</td>
+      {%endif%}
+      {%if i.PMG_Rating is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.PMG_Rating}}</td>
+      {%endif%}
+
+      {%if i.Engineering_Comments is none%}
+      <td style='word-wrap:break-word'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Engineering_Comments}}</td>
+      {%endif%}
+      {%if i.Engineering_Rating is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Engineering_Rating}}</td>
+      {%endif%}
+      {%if i.Erection_Comments is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Erection_Comments}}</td>
+      {%endif%}
+      {%if i.Erection_Rating is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Erection_Rating}}</td>
+      {%endif%}
+      {%if i.Commissioning_Comments is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Commissioning_Comments}}</td>
+      {%endif%}
+      {%if i.Commissioning_Rating is none%}
+      <td style='word-wrap:break-word;'><b>--</b></td>
+      {%else%}
+      <td style='word-wrap:break-word'>{{i.Commissioning_Rating}}</td>
+      {%endif%}
+      {%if i.Finance_Comments is none%}
+        <td style='word-wrap:break-word;'><b>--</b></td>
+        {%else%}
+        <td style='word-wrap:break-word'>{{i.Finance_Comments}}</td>
+        {%endif%}
+        {%if i.Finance_Rating is none%}
+          <td style='word-wrap:break-word;'><b>--</b></td>
+          {%else%}
+          <td style='word-wrap:break-word'>{{i.Finance_Rating}}</td>
+          {%endif%}
+{%if i.Project is not none%}
+    <td style='word-wrap:break-word'><center><a href="{% url 'vendor-update' i.id %}"><button type="button" class="btn btn-outline-primary" name="button">Edit</button></center></td>
+      <td style='word-wrap:break-word'><a href="{% url 'vendor-proadd' i.id %}"><button type="button" class="btn btn-outline-primary" name="button">Add Project</button></a></td>
+      <td style='word-wrap:break-word'><a href="{% url 'vendor-prodelete' i.id %}"><button type="button" class="btn btn-outline-primary" name="button">Delete Project</button></a></td>
+      <td style='word-wrap:break-word'><a href="{% url 'vendor_del' i.id %}"><button type="button" class="btn btn-outline-primary" name="button">Delete Vendor</button></a></td>
+
+{%else%}
+  <td style='word-wrap:break-word'><b>--</b></td>
+  <td style='word-wrap:break-word'><a href="{% url 'vendor-proadd' i.id %}"><button type="button" class="btn btn-outline-primary" name="button">Add Project</button></a></td>
+  <td><center><b>--</b></center></td>
+  <td style='word-wrap:break-word'><a href="{% url 'vendor-prodelete' i.id %}"><button type="button" class="btn btn-outline-primary" name="button">Delete Vendor</button></a></td>
+{%endif%}
+
+</tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{%endblock%}

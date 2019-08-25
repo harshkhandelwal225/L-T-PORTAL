@@ -1,0 +1,144 @@
+{% load staticfiles %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{%static 'assets/css/Customizable-Background--Overlay.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/styles.css'%}">
+    <link rel="stylesheet" href="{%static 'assets/css/Team-with-rotating-cards.css'%}">
+</head>
+
+<body style="height:758px;">
+  <header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#003a7c">
+      <div class="container-fluid">
+        <a class="navbar-brand mr-4" href="{% url 'home' %}">L&T Rating Portal</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggle">
+          <div class="navbar-nav mr-auto">
+            <a class="nav-item nav-link" href="{% url 'display' %}">Display Vendors</a>
+            <a class="nav-item nav-link" href="{% url 'display2' %}">Edit Project Details</a>
+
+          </div>
+          <!-- Navbar Right Side -->
+          <div class="navbar-nav">
+            {% if user.is_authenticated %}
+            <a class="nav-item nav-link" style="margin-left:20px;margin-top:1px" href="{% url 'logout' %}">Logout</a>
+
+            </div>
+            {% else %}
+
+              <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+              <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+    <div style="margin-top:80px">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <section class="card-section-imagia" style="background-color:rgba(241,241,241,0);">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="card-container-imagia">
+                                        <div class="card-imagia">
+                                            <div class="front-imagia">
+                                                <div class="cover-imagia"><img src="{%static 'assets/img/entry.jpg'%}" alt="" style="height:144px;"></div>
+                                                <div class="content-imagia">
+                                                    <h3 class="text-center">Add Vendor</h3>
+                                                    <p class="text-center" style="font-size:20px;">Form to add basic vendor information which may include &nbsp;Category, Item Description, Vendor Name, Vendor Location, Approval Status.</p>
+                                                </div>
+                                                <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
+                                            </div>
+                                            <div class="back-imagia">
+                                                <div class="content-imagia content-back-imagia">
+                                                    <div>
+                                                        <h3 class="text-center">Add Vendor</h3>
+                                                        <p class="text-center" style="font-size:20px;">Form to add basic vendor information which may include &nbsp;Category, Item Description, Vendor Name, Vendor Location, Approval Status.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="footer-imagia">
+                                                    <div><a href="{%url 'vendor'%}">Add Vendor Info</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="card-container-imagia">
+                                        <div class="card-imagia">
+                                            <div class="front-imagia">
+                                                <div class="cover-imagia"><img src="{%static 'assets/img/jsp-charts-graphs-index-data-label.png'%}" alt="" style="background-repeat:no-repeat;background-size:contain;height:129px;"></div>
+                                                <div class="content-imagia">
+                                                    <h3 class="text-center">Graphical Overall Rating</h3>
+                                                    <p class="text-center" style="font-size:20px;">Graphically represent and compare different vendors on the basis of their Category, Item Description, Vendor Name, Vendor Location, Overall Rating.</p>
+                                                </div>
+                                                <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
+                                            </div>
+                                            <div class="back-imagia">
+                                                <div class="content-imagia content-back-imagia">
+                                                    <div>
+                                                        <h3 class="text-center">Graphical Overall Rating</h3>
+                                                        <p class="text-center" style="font-size:20px;">Graphically represent and compare different vendors on the basis of their Category, Item Description, Vendor Name, Vendor Location, Overall Rating.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="footer-imagia">
+                                                    <div><a href="{%url 'graph2'%}">View Overall Vendor Rating</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="card-container-imagia">
+                                        <div class="card-imagia">
+                                            <div class="front-imagia">
+                                                <div class="cover-imagia"><img src="{%static 'assets/img/example.png'%}" alt="" style="background-repeat:no-repeat;background-size:contain;height:150px;"></div>
+                                                <div class="content-imagia">
+                                                    <h3 class="text-center">Graphical Projects Rating</h3>
+                                                    <p class="text-center" style="font-size:20px;">Graphically represent and compare different projects of a vendor on the basis of Category, Item Description, Vendor Name, Location, Overall Rating.</p>
+                                                </div>
+                                                <div class="footer-imagia"><span><i class="fa fa-plus"></i> More info</span></div>
+                                            </div>
+                                            <div class="back-imagia">
+                                                <div class="content-imagia content-back-imagia">
+                                                    <div>
+                                                        <h3 class="text-center">Graphical Projects Rating</h3>
+                                                        <p class="text-center" style="font-size:20px;">Graphically represent and compare different projects of a vendor on the basis of Category, Item Description, Vendor Name, Location, Overall Rating.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="footer-imagia">
+                                                    <div><a href="{%url 'graph1'%}">Veiw Projects Rating Of Vendors</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div><img class="float-right" src="{%static 'assets/img/8.jpg'%}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

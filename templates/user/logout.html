@@ -1,0 +1,10 @@
+{% extends "user/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+  <div class="border-top pt-3">
+    <small class="text-muted">
+      Want to log in again?<a href="{% url 'login' %}" class="ml-2">Sign in</a>
+    </small>
+  </div>
+</div>
+{% endblock content %}
